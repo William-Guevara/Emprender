@@ -14,6 +14,7 @@ import { ActivationStart } from '@angular/router';
 export class ServiceService {
 
   listEmprendedores: Observable<Emprendedor[]>;
+  listEmprendedor: Emprendedor;
 
   private emprendedorCollection : AngularFirestoreCollection<Emprendedor>;
 
@@ -43,6 +44,7 @@ export class ServiceService {
       map(actions => actions.map( a => a.payload.doc.data() as Emprendedor))
     )
   }
+
 
 
 }

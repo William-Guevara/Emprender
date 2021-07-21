@@ -15,7 +15,6 @@ export class IndexComponent implements OnInit {
   emprendedor!: Emprendedor;
   myForm!: FormGroup;
   date!:any;
-  private isEmail = /\S+@\S+.S+/;
 
   constructor(private router: Router,
     private fb: FormBuilder,
@@ -35,17 +34,25 @@ export class IndexComponent implements OnInit {
     this.myForm = this.fb.group({
       name: ['', [Validators.required]],
       entrepreneurship: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern(this.isEmail)]],
+      email: ['', [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       phone: ['', [Validators.required]],
       address: ['', [Validators.required]],
       detail: ['', [Validators.required]]
     });
+  }
+
+  isValidField(field: string): string{
+    const validedField = this.myForm.get(field);
+    return (!validedField.valid && validedField.touched)
+    ? 'is-invalid' : validedField.touched ? 'is-valid' : '';
+
   }
  
   guardarEmprendedor():void {
     this.date = new Date().toLocaleString();
     
     const emprendedor: Emprendedor = {
+      id: null,
       name: this.myForm.get('name').value,
       entrepreneurship: this.myForm.get('entrepreneurship').value,
       email: this.myForm.get('email').value,
@@ -54,31 +61,12 @@ export class IndexComponent implements OnInit {
       detail : this.myForm.get('detail').value,
       date : this.date,
     };
+
     this.service.agregarEmprendedor(emprendedor);
-    this.myForm.reset();
-    
-    console.log(emprendedor)
-    
-
-    /*this.service.agregarEmprendedor(emprendedor).subscribe(
-      (success => this.onAgregarSuccess(success)),
-      (error => this.onAgregarError(error))
-    );*/
-  }
-
-  onAgregarSuccess(success){
-    
-    this.snackBar.open('El emprendedor fue registrado con exito!', '', {
-      duration: 3000,
-    });
+    alert('El emprendedor fue registrado con exito!');
     this.route.navigate(['/emprendedores']);
+    this.myForm.reset();
   }
 
-  onAgregarError(error){
-    
-    this.snackBar.open('El emprendedor no pudo ser registrado!', '', {
-      duration: 3000,
-    });
-  }
 
 }

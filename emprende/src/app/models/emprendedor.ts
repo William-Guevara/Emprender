@@ -1,4 +1,5 @@
 export class Emprendedor {
+    id! : string;
     name! : string;
     entrepreneurship! : string;
     email! : string;

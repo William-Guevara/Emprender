@@ -48,44 +48,82 @@
 
                     <div class="mb-3">
                         <label class="form-label">Nombres</label>
-                        <input class="form-control" type="text" matInput formControlName="name">
+                        <input class="form-control" type="text" matInput formControlName="name" [class]="isValidField('name')">
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('name').errors ?.required">
+                                Campo requerido
+                            </span>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Emprendimiento</label>
-                        <input class="form-control" type="text" matInput formControlName="entrepreneurship">
+                        <input class="form-control" type="text" matInput formControlName="entrepreneurship" [class]="isValidField('entrepreneurship')">
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('name').errors ?.required">
+                                Campo requerido
+                            </span>
+                        </div>
+
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Correo electronico</label>
-                        <input class="form-control" type="email" matInput formControlName="email">
+                    <div class=" mb-3 ">
+                        <label class="form-label ">Correo electronico</label>
+                        <input class="form-control " type="email " matInput formControlName="email" [class]="isValidField( 'email')">
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('email').errors ?.required">
+                                Campo requerido
+                            </span>
+                            <span *ngIf="myForm.get('email').errors ?.pattern">
+                                Ingrese un correo electronico valido
+                            </span>
+                        </div>
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Telefono</label>
-                        <input class="form-control" type="text" matInput formControlName="phone">
+                        <input class="form-control" type="text" matInput formControlName="phone" [class]="isValidField('phone')">
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('phone').errors ?.required">
+                                Campo requerido
+                            </span>
+                        </div>
+
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Dirección</label>
-                        <input class="form-control" type="text" matInput formControlName="address">
+                    <div class=" mb-3 ">
+                        <label class="form-label ">Dirección</label>
+                        <input class="form-control " type="text " matInput formControlName="address" [class]="isValidField('address')">
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('address').errors ?.required">
+                                Campo requerido
+                            </span>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="form-floating">
                         <label for="floatingTextarea">Información del emprendedor</label>
-                        <textarea class="form-control" rows="15" matInput formControlName="detail"></textarea>
+                        <textarea class="form-control" rows="15" matInput formControlName="detail" [class]="isValidField('detail')"></textarea>
+                        <div class="invalid-feedback">
+                            <span *ngIf="myForm.get('detail').errors ?.required">
+                                Campo requerido
+                            </span>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="flexCheckDefault ">
+                        <label class="form-check-label" for="flexCheckDefault ">
                         By cheking this box and submitting your information. you are granting you us permission to email you. You may unsuscribe at any time.
-                    </label>
+                        </label>
                     </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 ">
                     <br>
-                    <button type="submit" class="btn btn-color" (click)="guardarEmprendedor()">Registrarse</button>
+                    <button type="submit " class="btn btn-color " (click)="guardarEmprendedor() ">Registrarse</button>
                 </div>
             </div>
         </form>
