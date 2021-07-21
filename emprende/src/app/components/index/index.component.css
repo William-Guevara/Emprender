@@ -7,6 +7,12 @@
 .texto-medio {
     position: absolute;
     color: white;
+    margin-top: 165px
+}
+
+.texto-blue {
+    position: absolute;
+    color: white;
 }
 
 .img-contenido {
@@ -25,7 +31,7 @@
 }
 
 .info {
-    margin-top: -20px;
+    margin-top: -30px;
     height: 300px;
     background-color: #4169E1;
 }

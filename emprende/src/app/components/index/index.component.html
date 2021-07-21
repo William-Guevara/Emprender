@@ -1,14 +1,10 @@
-<app-header></app-header>
-
-
-
 <div class="contentido" style="background-color: rgba(29, 2, 2, 0.3);">
     <div class="container">
 
         <img src="./../../../assets/img/pedestrians.jpg" class="img-contenido img-fluid" alt="No carga...">
 
-        <div class="texto-medio" style="margin-top: 20%;">
-            <div class="row">
+        <div class="texto-medio">
+            <div class="row  mt-5">
                 <div class="col-6">
                     <h1 class="display-3"> Bienvenido a Bogotá-e</h1>
                 </div>
@@ -24,14 +20,14 @@
 
 <div class="info">
     <div class="container">
-        <div class="texto-medio">
+        <div class="texto-blue mt-5">
             <div class="row">
-                <div class="col-6 mt-5">
+                <div class="col-6 mt-1">
                     <h2> Bogotá-e</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla consectetur harum alias ipsa repellat eligendi cupiditate fuga quia! Facere culpa voluptates sit at blanditiis molestiae</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
-                <div class="col-4 mt-5">
+                <div class="col-4 mt-1">
                     <img style="z-index: auto;" src="./../../../assets/img/light.jpg" class="img-info img-fluid" alt="No carga...">
                 </div>
             </div>
@@ -45,53 +41,54 @@
 
         <h4 class="text-primary">Registro emprendedor</h4>
         <p>Write somenthing in this area.</p>
-        <div class="row">
-            <div class="col-6">
 
-                <div class="mb-3">
-                    <label class="form-label">Nombres</label>
-                    <input class="form-control" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Emprendimiento</label>
-                    <input class="form-control" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Correo electronico</label>
-                    <input class="form-control" type="email">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Telefono</label>
-                    <input class="form-control" type="text">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Dirección</label>
-                    <input class="form-control" type="text">
-                </div>
-            </div>
+        <form [formGroup]="myForm" autocomplete="off">
+            <div class="row">
+                <div class="col-6">
 
-            <div class="col-6">
-                <div class="form-floating">
-                    <label for="floatingTextarea">Información del emprendedor</label>
-                    <textarea class="form-control" rows="15"></textarea>
+                    <div class="mb-3">
+                        <label class="form-label">Nombres</label>
+                        <input class="form-control" type="text" matInput formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Emprendimiento</label>
+                        <input class="form-control" type="text" matInput formControlName="entrepreneurship">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electronico</label>
+                        <input class="form-control" type="email" matInput formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefono</label>
+                        <input class="form-control" type="text" matInput formControlName="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dirección</label>
+                        <input class="form-control" type="text" matInput formControlName="address">
+                    </div>
                 </div>
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
+
+                <div class="col-6">
+                    <div class="form-floating">
+                        <label for="floatingTextarea">Información del emprendedor</label>
+                        <textarea class="form-control" rows="15" matInput formControlName="detail"></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
                         By cheking this box and submitting your information. you are granting you us permission to email you. You may unsuscribe at any time.
                     </label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <br>
+                    <button type="submit" class="btn btn-color" (click)="guardarEmprendedor()">Registrarse</button>
                 </div>
             </div>
-
-            <div class="col-12">
-                <br>
-                <button type="button" class="btn btn-color">Registrarse</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <br>
-
-<app-footer></app-footer>
